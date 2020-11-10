@@ -9,7 +9,6 @@ namespace ASPCoreWithKV.Pages
 {
     public class KeyVaultSecretsModel : PageModel
     {
-
         public KeyVaultSecretsModel(IConfiguration config)
         {
             configuration = config;

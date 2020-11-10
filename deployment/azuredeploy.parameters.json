@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location":{
+            "value": "East US"
+        },
+        "serverName": {
+            "value": "cmsqlserver20200702"
+        },
+        "administratorLogin": {
+            "value": "sqlgod"
+        },
+        "administratorLoginPassword": {
+            "value": "Z$:gSc5M@6#u[C2Pg#9~R?:k"
+        }
+    }
+}
