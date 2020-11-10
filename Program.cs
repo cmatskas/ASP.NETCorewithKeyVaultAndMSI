@@ -1,12 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Azure.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace ASPCoreWithKV
 {
@@ -23,7 +19,9 @@ namespace ASPCoreWithKV
                 {
                         var builtConfig = config.Build();
                         config.AddAzureKeyVault( new Uri("https://cm-identity-kv.vault.azure.net"),
-                            new DefaultAzureCredential());
+                            new ChainedTokenCredential(
+                                new AzureCliCredential(), 
+                                new ManagedIdentityCredential()));
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

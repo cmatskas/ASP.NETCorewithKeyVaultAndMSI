@@ -1,0 +1,56 @@
+{
+  "title": "KeyVault and MSI code tour",
+  "steps": [
+    {
+      "file": "Program.cs",
+      "line": 18,
+      "description": "Code necessary to configure the Key Vault configuration provider for ASP.NET Core. This code will pull and populate all appsettings properties that have a mathching\r\nsecret on Key Vault (match on name) ",
+      "selection": {
+        "start": {
+          "line": 18,
+          "character": 16
+        },
+        "end": {
+          "line": 23,
+          "character": 19
+        }
+      }
+    },
+    {
+      "file": "ASPCoreWithKV.csproj",
+      "line": 8,
+      "description": "These 3 NuGet packages are required to wire up the Key Vault secret client without the need to provide any secrets or API keys",
+      "selection": {
+        "start": {
+          "line": 8,
+          "character": 5
+        },
+        "end": {
+          "line": 10,
+          "character": 83
+        }
+      }
+    },
+    {
+      "file": "Pages/KeyVaultSecrets.cshtml",
+      "line": 9,
+      "description": "UI to see the secrets in action :)"
+    },
+    {
+      "file": "Pages/KeyVaultSecrets.cshtml.cs",
+      "line": 15,
+      "description": "Inject the configuration"
+    },
+    {
+      "file": "Pages/KeyVaultSecrets.cshtml.cs",
+      "line": 26,
+      "description": "This config setting has already been set by Key Vault during startup"
+    },
+    {
+      "file": "Pages/KeyVaultSecrets.cshtml.cs",
+      "line": 30,
+      "description": "Create a Secret Client on demand so that we can retrieve Key Vault secrets in real time. Unlike the configuration settings that have been prepopulated at startup."
+    }
+  ],
+  "ref": "master"
+}
