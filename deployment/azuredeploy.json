@@ -103,11 +103,6 @@
                 "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_identity_8cea_name'))]"
             ],
             "kind": "app",
-            "identity": {
-                "principalId": "bb1603a1-3717-4504-9c9f-d53315b43c8a",
-                "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-                "type": "SystemAssigned"
-            },
             "properties": {
                 "enabled": true,
                 "hostNameSslStates": [
