@@ -1,6 +1,6 @@
 variable "resource_group_name" {
     type = string
-    default = "tf-ndclondon-demo"
+    default = "ndclondon"
 }
 
 variable "location" {

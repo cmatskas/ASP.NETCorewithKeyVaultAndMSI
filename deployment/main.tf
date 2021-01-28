@@ -13,27 +13,32 @@ terraform {
   }
 }
 
-variable "admin_username" {
-  type            = string
-  description = "Administrator user name for virtual machine"
-}
-
-variable "admin_password" {
-  type            = string
-  description = "Password must meet Azure complexity requirements"
-}
-
 provider "azurerm" {
   features {}
 }
 
+data "azurerm_key_vault" "myKeyVault" {
+  name                = "cm-identity-kv"
+  resource_group_name = "identity"
+}
+
+data "azurerm_key_vault_secret" "admin_username" {
+  name = "sqlAdministratorLogin"
+  key_vault_id = data.azurerm_key_vault.myKeyVault.id
+}
+
+data "azurerm_key_vault_secret" "admin_password" {
+  name = "sqlAdministratorLoginPassword"
+  key_vault_id = data.azurerm_key_vault.myKeyVault.id
+}
+
 resource "azurerm_sql_server" "cmsqlserver" {
-  name                                         = "cmndcconfsqlsrv"
-  resource_group_name              = var.resource_group_name
-  location                                     = var.location
-  version                                      = "12.0"
-  administrator_login                  = var.admin_username
-  administrator_login_password = var.admin_password
+  name                           = "cmndcconfsqlsrv"
+  resource_group_name            = var.resource_group_name
+  location                       = var.location
+  version                        = "12.0"
+  administrator_login            = data.azurerm_key_vault_secret.admin_username.value
+  administrator_login_password   = data.azurerm_key_vault_secret.admin_password.value
 }
 
 resource "azurerm_mssql_database" "test" {
