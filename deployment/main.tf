@@ -6,7 +6,7 @@ terraform {
     }
   }
    backend "azurerm" {
-    resource_group_name  = "dotnetconf"
+    resource_group_name  = "ndclondon"
     storage_account_name = "cmterraformdeployment"
     container_name       = "tfstate"
     key                  = "prod.terraform.tfstate"
@@ -28,7 +28,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_sql_server" "cmsqlserver" {
-  name                                         = "cmdotnetconfsqlsrv"
+  name                                         = "cmndcconfsqlsrv"
   resource_group_name              = var.resource_group_name
   location                                     = var.location
   version                                      = "12.0"
@@ -37,7 +37,7 @@ resource "azurerm_sql_server" "cmsqlserver" {
 }
 
 resource "azurerm_mssql_database" "test" {
-  name           = "cmdotnetconfsqldb"
+  name           = "cmndcconfsqldb"
   server_id      = azurerm_sql_server.cmsqlserver.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"

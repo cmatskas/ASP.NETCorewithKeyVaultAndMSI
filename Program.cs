@@ -19,9 +19,11 @@ namespace ASPCoreWithKV
                 {
                         var builtConfig = config.Build();
                         config.AddAzureKeyVault( new Uri("https://cm-identity-kv.vault.azure.net"),
+                            //new DefaultAzureCredential());
                             new ChainedTokenCredential(
-                                new ManagedIdentityCredential(),
-                                new AzureCliCredential()));
+                                new AzureCliCredential(),
+                                new ManagedIdentityCredential()
+                                ));
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

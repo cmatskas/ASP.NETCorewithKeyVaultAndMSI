@@ -1,6 +1,6 @@
 variable "resource_group_name" {
     type = string
-    default = "tf-dotnetconf-demo"
+    default = "tf-ndclondon-demo"
 }
 
 variable "location" {
