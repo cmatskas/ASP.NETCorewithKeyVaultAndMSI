@@ -30,6 +30,7 @@ jobs:
         with:
           enable-managed-identity: true
           enable-AzPsSession: true
+          allow-no-subscriptions: true 
           
       # Setup .NET Core SDK
       - name: Setup .NET Core
