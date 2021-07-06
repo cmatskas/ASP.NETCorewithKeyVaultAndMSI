@@ -26,12 +26,11 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: 'Login via Azure CLI'
-        uses: azure/CLI@v1
+        uses: jpda/login@v1.3
         with:
-          azcliversion: 2.25.0
-          inlineScript: |
-            az login --identity
-          
+          enable-managed-identity: true
+          enable-AzPsSession: false
+          allow-no-subscriptions: true
           
       # Setup .NET Core SDK
       - name: Setup .NET Core
