@@ -49,7 +49,7 @@ jobs:
       - name: 'Run Azure webapp deploy action using publish profile credentials'
         uses: azure/webapps-deploy@v2
         with: 
-          app-name: cm-ndc-london-webapp # Replace with your app name
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
           
       - name: Azure logout
