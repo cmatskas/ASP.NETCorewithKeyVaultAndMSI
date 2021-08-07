@@ -11,7 +11,7 @@ on:
     branches: [ main ]
     
 env:
-  AZURE_WEBAPP_NAME: cmdndcconfdemo    # set this to your application's name - test
+  AZURE_WEBAPP_NAME: cmdotnetconfdemo    # set this to your application's name - test
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '5.0.100'   
 
@@ -35,7 +35,7 @@ jobs:
 
       # Deploy the ARM template a single command using the runners shell
       - name: Deploy Azure Resource Manager (ARM) Template
-        uses: Azure/arm-deploy@v1
+        uses: Azure/arm-deploy@main
         with:
           # Provide the scope of the deployment. Valid values are: 'resourcegroup', 'managementgroup', 'subscription'
           scope: resourcegroup
