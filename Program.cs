@@ -23,7 +23,7 @@ namespace ASPCoreWithKV
                             new ChainedTokenCredential(
                                 new AzureCliCredential(),
                                 new ManagedIdentityCredential()
-                                ));
+                            ));
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
