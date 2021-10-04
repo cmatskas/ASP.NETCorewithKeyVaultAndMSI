@@ -1,6 +1,6 @@
 variable "resource_group_name" {
     type = string
-    default = "ndclondon"
+    default = "airlift-demo"
 }
 
 variable "location" {
