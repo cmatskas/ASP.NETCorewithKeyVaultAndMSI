@@ -11,7 +11,7 @@ on:
 env:
   AZURE_WEBAPP_NAME: cm-ps-demo    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '5.0.100'
+  DOTNET_VERSION: '6.0.100'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
