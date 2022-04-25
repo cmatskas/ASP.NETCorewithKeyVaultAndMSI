@@ -14,8 +14,8 @@ namespace ASPCoreWithKV.Pages
             configuration = config;
         }
         private readonly IConfiguration configuration;
-        public string SecretValue { get; set; }
-        public string ConfigSetting { get; set; }
+        public string? SecretValue { get; set; }
+        public string? ConfigSetting { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -31,6 +31,7 @@ namespace ASPCoreWithKV.Pages
                     credential: new ChainedTokenCredential(
                                     new AzureCliCredential(), 
                                     new ManagedIdentityCredential()));
+                                    
                 var secretOperation = await keyVaultClient.GetSecretAsync("KVSercret");
                 var secret = secretOperation.Value;
                 SecretValue = secret.Value;
