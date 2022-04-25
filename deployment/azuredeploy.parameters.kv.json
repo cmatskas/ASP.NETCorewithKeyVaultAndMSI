@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location":{
+            "value": "East US"
+        },
+        "serverName": {
+            "value": "cmspdemosqlserver"
+        },
+
+        "sites_cmdotnetconfdemo_name": {
+            "value": "cmdotnetconfdemo"
+        },
+
+        "administratorLogin": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/e42acc2d-8462-4fb5-bf0d-d983c0017584/resourceGroups/identity/providers/Microsoft.KeyVault/vaults/cm-identity-kv"
+                },
+                "secretName": "sqlAdministratorLogin"
+            }
+        },
+        "administratorLoginPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/e42acc2d-8462-4fb5-bf0d-d983c0017584/resourceGroups/identity/providers/Microsoft.KeyVault/vaults/cm-identity-kv"
+                },
+                "secretName": "sqlAdministratorLoginPassword"
+            }
+        }
+    }
+}
