@@ -6,9 +6,9 @@ name: OIDC - Build and deploy WebApp & SQL
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
+    branches: [ main, net7.0 ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, net7.0 ]
 
 permissions:
       id-token: write
